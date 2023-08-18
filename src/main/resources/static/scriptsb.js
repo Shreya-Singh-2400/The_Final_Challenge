@@ -1,8 +1,9 @@
 let ele=document.getElementById('cust')
+const url = "http://localhost:8080/customers";
 function getCustomer() {
 	//const url = "http://jcdemoopenshift1.conygre.com:8081/customer";
-	alert('fetching customers')
-	const url = "http://localhost:8080/customers";
+//	alert('fetching customers')
+
 	fetch(url)//promise object to return data from Rest API
 		.then(function(response) {console.log(response); return response.json(); }) //resolve , data from resolve is passed to next then
 		.then(function(Customers) {
@@ -29,18 +30,19 @@ function getCustomer() {
 }
 
 function addCustomer() {
-alert('clicked')
+alert('Please wait, registration is progress.')
 	const data = {
 		customerId:document.getElementById('customerId').value,
-		name: document.getElementById('firstName').value,
-		lastname: document.getElementById('lastName').value,
+		firstName: document.getElementById('firstName').value,
+		lastName: document.getElementById('lastName').value,
 		gender: document.getElementById('gender').value,
 		job: document.getElementById('job').value,
 		dob: document.getElementById('dob').value
 	};
 	console.log(data);
 	//const url = "http://jcdemoopenshift1.conygre.com:8081/Customer";
-	const url = "http://localhost:8080/customers";
+
+//	console.log(urlnew)
 	fetch(url, {
 		method: 'POST',
 		headers: {
@@ -60,7 +62,7 @@ alert('clicked')
 function populateInputs(_id) {
 	//const url = `http://jcdemoopenshift1.conygre.com:8081/Customer/${id}`;
 	const url = `/Customer/${_id}`;
-	fetch(url)
+	fetch(urlnew)
 		.then(function(response){ return response.json(); })
 		.then(function(Customer){
 			document.getElementById('customer_id').innerText = Customer.customer_id;

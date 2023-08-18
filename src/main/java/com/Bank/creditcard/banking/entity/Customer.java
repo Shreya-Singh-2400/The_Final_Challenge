@@ -4,7 +4,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Date;
-@Document(collection = "Customer")
+@Document(collection = "Customers")
 public class Customer {
     @Id
     private String _id;
